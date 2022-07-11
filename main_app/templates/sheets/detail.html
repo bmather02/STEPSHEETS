@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block content %}
+<h1>{{sheet.title}} by {% for chorepgrapher in sheet.choreographers.all %}{{choreographer.name}} {% endfor %}</h1>
+    <p>
+        {{sheet.content}}
+    </p>
+<a href="{% url 'sheets_update' sheet.id %}">EDIT</a>
+<a href="{% url 'sheets_delete' sheet.id %}">DELETE</a>
+{% endblock %}

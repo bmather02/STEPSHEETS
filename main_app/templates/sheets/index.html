@@ -2,7 +2,9 @@
 <h1>All Step Sheets</h1>
 {% for sheet in sheets %}
 <div style="background-color: green">
-    <h4>{{sheet.title}}</h4>
+    <a href="{% url 'detail' sheet.id %}">
+        <h4>{{sheet.title}}</h4>
+    </a>
 </div>
 {% endfor %}
 {% endblock %}

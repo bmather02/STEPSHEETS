@@ -11,7 +11,14 @@
 <body>
     <header>
         <nav>
-            nav
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'index' %}">View All Step Sheets</a></li>
+                <li><a href="{% url 'sheets_create' %}">Submit A New Step Sheet</a></li>
+                <li><a href="{% url 'choreo_index' %}">Choreographers</a></li>
+                <li><a href="{% url 'choreo_create' %}">Add A Choreographer</a></li>
+            </ul>
         </nav>
     </header>
     <main>
