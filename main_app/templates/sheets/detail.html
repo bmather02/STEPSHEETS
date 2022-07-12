@@ -1,7 +1,12 @@
 {% extends 'base.html' %} {% block content %}
-<h1>{{sheet.title}} by {% for chorepgrapher in sheet.choreographers.all %}{{choreographer.name}} {% endfor %}</h1>
+<h1>{{sheet.title}} by 
+    {% if sheet.choreographer.count > 1 %}
+    {% for id, choreographer in sheet.choreographer.items %} 
+    <a href="{% url 'choreo_detail' choreographer.id %}">{{choreo_join.id}}</a>
+    {% endfor %}
+    {% endif %}</h1>
     <p>
-        {{sheet.content}}
+        {{sheet.content}}, {{choreo_join}}
     </p>
 <a href="{% url 'sheets_update' sheet.id %}">EDIT</a>
 <a href="{% url 'sheets_delete' sheet.id %}">DELETE</a>

@@ -12,6 +12,7 @@ urlpatterns = [
     path('choreographers/', views.ChoreoList.as_view(), name='choreo_index'),
     path('choreographers/<int:pk>', views.ChoreoDetail.as_view(), name='choreo_detail'),
     path('choreographers/add', views.ChoreoCreate.as_view(), name='choreo_create'),
-    path('choreographers/<int:pk>/update', views.ChoreoDetail.as_view(), name='choreo_detail'),
-    path('stepsheets/<int:sheet_id>/assoc_choreo/<int:toy_id>/', views.assoc_choreo, name='assoc_choreo')
+    path('choreographers/<int:pk>/update', views.ChoreoDetail.as_view(), name='choreo_update'),
+    path('stepsheets/<int:sheet_id>/assoc_choreo/<int:toy_id>/', views.assoc_choreo, name='assoc_choreo'),
+    path('accounts/signup/', views.signup, name='signup')
 ]

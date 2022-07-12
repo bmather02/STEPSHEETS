@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 # Create your models here.
 COUNTRIES = (
     ('AF', 'AFGHANISTAN'),
@@ -244,6 +245,9 @@ class Choreographer(models.Model):
     name = models.CharField(max_length=70)
     country = models.CharField(max_length=5, choices=COUNTRIES, default=COUNTRIES[224][0])
 
+    def __str__(self):
+        return self.name
+
 LEVELS = (
     ('1', 'Absolute Beginner'),
     ('2', 'Beginner'),
@@ -286,6 +290,7 @@ class Sheet(models.Model):
     style = models.CharField(max_length=10, choices=STYLES, default=STYLES[0][0])
     content = models.TextField()
     choreographer = models.ManyToManyField(Choreographer)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

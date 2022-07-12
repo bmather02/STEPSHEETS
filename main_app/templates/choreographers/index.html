@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Choreographers</h1>
+{% for choreo in object_list %}
+<div style="background-color: green">
+    <a href="{% url 'choreo_detail' choreo.id%}">
+        <h3>{{choreo.name}}</h3>
+    </a> 
+</div>
+{% endfor %}
+{% endblock %}
