@@ -1,1 +1,1 @@
-web: gunicorn STEPSHEET.wsgi
+web: gunicorn stepsheet.wsgi
