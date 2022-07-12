@@ -1,4 +1,25 @@
 body{
-    background-color: black;
-    color: aliceblue;
+    background-color: #03312e;
+    color: #f1f7ed;
+}
+a {
+    color: #f1f7ed;
+    text-decoration: none;
+}
+li {
+    list-style: none;
+    padding: .5vw;
+    background-color: #5bc0be;
+    border: #03312e 1px solid;
+    border-radius: 3px;
+    margin: 1px;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
