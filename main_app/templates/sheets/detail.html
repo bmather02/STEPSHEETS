@@ -8,6 +8,15 @@
     <p>
         {{sheet.content}}, {{choreo_join}}
     </p>
-<a href="{% url 'sheets_update' sheet.id %}">EDIT</a>
-<a href="{% url 'sheets_delete' sheet.id %}">DELETE</a>
-{% endblock %}
+   
+    {% if perms.STEPSHEET.change_sheet %}
+        {% if user.is_authenticated %}
+            <a href="{% url 'sheets_update' sheet.id %}">EDIT</a>
+            {% endif %}
+        {% endif %}
+        {% if perms.STEPSHEET.delete_sheet %}
+            {% if user.is_authenticated %}
+                <a href="{% url 'sheets_delete' sheet.id %}">DELETE</a>
+            {% endif %}
+        {% endif %}
+    {% endblock %}
