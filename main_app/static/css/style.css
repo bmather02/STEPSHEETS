@@ -22,4 +22,12 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+}
+.index_item {
+    padding: 0 15px;
+    background-color: #5bc0be;
+    border: #03312e 1px solid;
+    border-radius: 3px;
+    margin: 3px;
 }

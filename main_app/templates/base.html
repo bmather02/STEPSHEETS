@@ -11,13 +11,14 @@
 <body>
     <header>
         <nav>
-            <img src="https://bradleymather.com/wp-content/uploads/2022/07/Untitled_design__4_-removebg-preview.png" style ="max-height: 100px; margin-top: -25px;"/>
+            <a href="{% url 'home' %}">
+                <img src="https://bradleymather.com/wp-content/uploads/2022/07/Untitled_design__4_-removebg-preview.png" style ="max-height: 100px; margin-top: -25px;"/>
+            </a>
             <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
                 <li><a href="{% url 'index' %}">All Step Sheets</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'sheets_create' %}">Submit New Step Sheet</a></li>
+                <li><a href="{% url 'sheets_create' %}">Submit Step Sheet</a></li>
                 {% endif %}
                 <li><a href="{% url 'choreo_index' %}">Choreographers</a></li>
                 {% if user.is_authenticated %}

@@ -1,6 +1,6 @@
 from distutils.log import error
 from django.shortcuts import render, redirect
-from .models import Choreographer, Sheet
+from .models import Choreographer, Sheet, Video
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
@@ -28,6 +28,11 @@ def sheet_detail(request, sheet_id):
         choreos_list.append(choreo.name)
     choreo_join = ", ".join(choreos_list)
     return render(request, 'sheets/detail.html', {'sheet': sheet, 'choreo_join': choreos_list})
+
+class VideoCreate(LoginRequiredMixin, CreateView):
+    model = Video
+    fields = '__all__'
+    success_url = '/stepsheets/'
 
 class SheetCreate(LoginRequiredMixin, CreateView):
     model = Sheet
@@ -57,10 +62,16 @@ class ChoreoDetail(DetailView):
 class ChoreoCreate(LoginRequiredMixin, CreateView):
     model = Choreographer
     fields = '__all__'
+    success_url = '/choreographers/'
 
 @login_required
 def assoc_choreo(request, sheet_id, choreo_id):
     Sheet.objects.get(id=sheet_id).choreo.add(choreo_id)
+    return redirect('detail', sheet_id=sheet_id)
+
+@login_required
+def assoc_video(request, sheet_id, video_id):
+    Sheet.objects.get(id=sheet_id).video.add(video_id)
     return redirect('detail', sheet_id=sheet_id)
 
 def signup(request):
