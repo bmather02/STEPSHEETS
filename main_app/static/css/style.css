@@ -49,8 +49,8 @@ nav {
     align-items: center;
 }
 .title{
-    font-size: 55px;
-    margin: 0 0 0 -10vw;
+    font-size: 3vw;
+    margin: 0 0 0 1vw;
 }
 footer{
     display: flex;
@@ -63,9 +63,10 @@ footer{
 }
 ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     flex-wrap: wrap;
+    height: 150px;
 }
 .index_item {
     padding: 1px 15px;
