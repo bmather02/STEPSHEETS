@@ -3,8 +3,8 @@
     <h1>Delete {{object.title}}?</h1>
     <form action="" method="POST">
         {% csrf_token %}
-        <input type="submit" style="background-color: red;" value="Yes, delete {{object.title}}"/>
-        <a href="{% url 'detail' sheet.id %}">Cancel</a>
+        <input type="submit" class="btn-delete" value="Yes, delete {{object.title}}"/>
+        <a href="{% url 'detail' sheet.id %}" class="btn">Cancel</a>
     </form>
 </div>
 <div class="sidebar">

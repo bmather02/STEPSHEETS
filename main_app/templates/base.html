@@ -33,7 +33,13 @@
         </nav>
     </header>
     <main>
-        {% block content %} {% endblock %}
+        <form action="{% url 'search_results' %}" method="GET" class="search_bar">
+            <input name="query" type="text" placeholder="Search For A Dance ex. Tush Push" class="search">
+            <input type="submit" value="Search" class="btn">
+        </form>
+        <div class="page">
+            {% block content %} {% endblock %}
+        </div>
     </main>
     <footer>
         footer

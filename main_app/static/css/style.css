@@ -16,6 +16,7 @@ li{
     margin: 2px;
     box-shadow: 0 0 2px #f1f7ed;
     border: none;
+    color:#f1f7ed;
 }
 .btn:hover{
     box-shadow: 0 0 5px #03312e;
@@ -29,6 +30,7 @@ li{
     margin: 2px;
     box-shadow: 0 0 2px #f1f7ed;
     border: none;
+    color:#f1f7ed;
 }
 .btn-delete:hover{
     box-shadow: 0 0 10px red;
@@ -66,11 +68,17 @@ ul {
     flex-wrap: wrap;
 }
 .index_item {
-    padding: 0 15px;
+    padding: 1px 15px;
     background-color: #5bc0be;
-    border: #03312e 1px solid;
+    box-shadow: 0 0 1px #03312e;
     border-radius: 3px;
-    margin: 3px;
+    margin: 8px;
+}
+.index_item:hover{
+    box-shadow: 0 0 10px #03312e;
+    padding: 1px 20px;
+    margin: 8px 0 8px 0;
+    transition: 150ms;
 }
 .choreo_name {
     margin: 0 17px 0 -2px;
@@ -78,18 +86,19 @@ ul {
 main{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .content{
-    width: 80vw;
-    border: 1px solid green;
+    width: 76vw;
+    /* border: 1px solid green; */
     margin: 1vw;
     background-color: #037171;
     border-radius: 1px;
     padding: 1vw;
 }
 .sidebar{
-    width: 15vw;
-    border: 1px solid red;
+    width: 17vw;
+    /* border: 1px solid red; */
     margin: 1vw;
     display: flex;
     justify-content: center;
@@ -100,4 +109,29 @@ main{
 .edit_delete{
     display: flex;
     justify-content: space-around;
+}
+.sheet_index_detail{
+    display: flex;
+    justify-content: space-between;
+    width: 40vw;
+    margin: -30px 0 0 0;
+}
+.search_bar{
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+.page{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.search{
+    width: 25vw;
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+    margin-right: .75vw;
 }

@@ -1,5 +1,6 @@
 from distutils.log import error
 from django.shortcuts import render, redirect
+from tomlkit import datetime
 from .models import Choreographer, Sheet, Video
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
@@ -9,6 +10,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import Group
+from django.db.models import Q
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -17,7 +19,7 @@ def about(request):
     return render(request, 'about.html')
 
 def sheet_index(request):
-    sheets = Sheet.objects.all()
+    sheets = Sheet.objects.all().order_by('-id')
     return render(request, 'sheets/index.html', {'sheets': sheets})
 
 def sheet_detail(request, sheet_id):
@@ -89,3 +91,11 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+class SearchResults(ListView):
+    model = Sheet
+    template_name = 'search.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('query')
+        return Sheet.objects.filter(Q(title__icontains=query))

@@ -17,4 +17,5 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name='signup'),
     path('videos/submit/', views.VideoCreate.as_view(), name='videos_create'),
     path('stepsheets/<int:sheet_id>/assoc_video/<int:choreo_id>/', views.assoc_video, name='assoc_video'),
+    path('search/', views.SearchResults.as_view(), name='search_results')
 ]
