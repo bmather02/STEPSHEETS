@@ -6,17 +6,58 @@ a {
     color: #f1f7ed;
     text-decoration: none;
 }
-li {
+li{
     list-style: none;
+}
+.btn {
     padding: .5vw;
     background-color: #5bc0be;
-    border: #03312e 1px solid;
     border-radius: 3px;
-    margin: 1px;
+    margin: 2px;
+    box-shadow: 0 0 2px #f1f7ed;
+    border: none;
+}
+.btn:hover{
+    box-shadow: 0 0 5px #03312e;
+    color: #03312e;
+    transition: 300ms;
+}
+.btn-delete {
+    padding: .5vw;
+    background-color: #5bc0be;
+    border-radius: 3px;
+    margin: 2px;
+    box-shadow: 0 0 2px #f1f7ed;
+    border: none;
+}
+.btn-delete:hover{
+    box-shadow: 0 0 10px red;
+    color: red;
+    text-shadow: white 0 0 2px;
+    transition: 300ms;
 }
 nav {
     display: flex;
     justify-content: space-between;
+    background-color: #037171;
+    border-radius: 1px;
+    padding: 1vw;
+    width: 95vw;
+    margin: 0 1vw;
+    align-items: center;
+}
+.title{
+    font-size: 55px;
+    margin: 0 0 0 -10vw;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    background-color: #037171;
+    border-radius: 1px;
+    padding: 1vw;
+    width: 95vw;
+    margin: 0 1vw;
 }
 ul {
     display: flex;
@@ -30,4 +71,33 @@ ul {
     border: #03312e 1px solid;
     border-radius: 3px;
     margin: 3px;
+}
+.choreo_name {
+    margin: 0 17px 0 -2px;
+}
+main{
+    display: flex;
+    justify-content: center;
+}
+.content{
+    width: 80vw;
+    border: 1px solid green;
+    margin: 1vw;
+    background-color: #037171;
+    border-radius: 1px;
+    padding: 1vw;
+}
+.sidebar{
+    width: 15vw;
+    border: 1px solid red;
+    margin: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #037171;
+    border-radius: 1px;
+}
+.edit_delete{
+    display: flex;
+    justify-content: space-around;
 }

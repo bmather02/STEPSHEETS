@@ -1,12 +1,17 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Sign Up</h1>
-
-{% if error_message %}
-<p style="color: red">{{error_message}}</p>
-{% endif %}
-
-<form method="POST" action="{% url 'signup' %}">
-    {% csrf_token %} {{form.as_p}}
-    <input type="submit" value="Sign Up"/>
-</form>
+<div class="content">
+    <h1>Sign Up</h1>
+    
+    {% if error_message %}
+    <p style="color: red">{{error_message}}</p>
+    {% endif %}
+    
+    <form method="POST" action="{% url 'signup' %}">
+        {% csrf_token %} {{form.as_p}}
+        <input type="submit" value="Sign Up"/>
+    </form>
+</div>
+<div class="sidebar">
+    {% include 'sidebar.html' %}
+</div>
 {% endblock %}

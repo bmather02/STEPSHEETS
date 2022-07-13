@@ -11,22 +11,23 @@
 <body>
     <header>
         <nav>
-            <a href="{% url 'home' %}">
-                <img src="https://bradleymather.com/wp-content/uploads/2022/07/Untitled_design__4_-removebg-preview.png" style ="max-height: 100px; margin-top: -25px;"/>
-            </a>
+                <a href="{% url 'home' %}">
+                    <img src="https://bradleymather.com/wp-content/uploads/2022/07/Untitled-design-8.png" style ="max-height: 200px; background-color: white; border-radius: 100%;"/>
+                </a>
+                <p class="title">STEPSHEETS.COM</p>
             <ul>
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'index' %}">All Step Sheets</a></li>
+                <li><a href="{% url 'about' %}" class="btn">About</a></li>
+                <li><a href="{% url 'index' %}" class="btn">All Step Sheets</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'sheets_create' %}">Submit Step Sheet</a></li>
+                <li><a href="{% url 'sheets_create' %}" class="btn">Submit Step Sheet</a></li>
                 {% endif %}
-                <li><a href="{% url 'choreo_index' %}">Choreographers</a></li>
+                <li><a href="{% url 'choreo_index' %}" class="btn">Choreographers</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'choreo_create' %}">Add Choreographer</a></li>
-                <li><a href="{% url 'logout' %}">Log Out</a></li>
+                <li><a href="{% url 'choreo_create' %}" class="btn">Add Choreographer</a></li>
+                <li><a href="{% url 'logout' %}" class="btn">Log Out</a></li>
                 {% else %}
-                <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                <li><a href="{% url 'login' %}">Log In</a></li>
+                <li><a href="{% url 'signup' %}" class="btn">Sign Up</a></li>
+                <li><a href="{% url 'login' %}" class="btn">Log In</a></li>
                 {% endif %}
             </ul>
         </nav>
