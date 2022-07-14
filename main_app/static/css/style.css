@@ -60,6 +60,7 @@ footer{
     padding: 1vw;
     width: 95vw;
     margin: 0 1vw;
+    flex-wrap: wrap;
 }
 ul {
     display: flex;
@@ -98,14 +99,16 @@ main{
     padding: 1vw;
 }
 .sidebar{
-    width: 17vw;
+    width: 18vw;
     /* border: 1px solid red; */
-    margin: 1vw;
+    margin: 1vw 1vw 1vw 0;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #037171;
     border-radius: 1px;
+    flex-wrap: wrap;
+    padding-bottom: 1vw;
 }
 .edit_delete{
     display: flex;
@@ -118,7 +121,7 @@ main{
     margin: -30px 0 0 0;
 }
 .search_bar{
-    width: 60vw;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,4 +138,19 @@ main{
     border-radius: 3px;
     border: none;
     margin-right: .75vw;
+}
+.video{
+    width: 17vw;
+    height: 10.32vw;
+    margin: 1vw 0;
+}
+.page-title{
+    width: 76vw;
+    display: flex;
+    justify-content: center;
+}
+.centered{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

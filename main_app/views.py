@@ -23,17 +23,20 @@ def sheet_index(request):
 
 def sheet_detail(request, sheet_id):
     sheet = Sheet.objects.get(id=sheet_id)
-    choreos = list(sheet.choreographer.all())
-    choreos_list=[]
-    for choreo in choreos:
-        choreos_list.append(choreo.name)
-    choreo_join = ", ".join(choreos_list)
-    return render(request, 'sheets/detail.html', {'sheet': sheet, 'choreo_join': choreos_list})
+    return render(request, 'sheets/detail.html', {'sheet': sheet})
 
 class VideoCreate(LoginRequiredMixin, CreateView):
     model = Video
     fields = '__all__'
     success_url = '/stepsheets/'
+
+    def form_valid(self, form):
+        form.instance.url = self.request.POST.get('url').replace('watch?v=', 'embed/')
+        form.instance.user = self.request.user
+        form.save()
+        print(self.request.META)
+        form.instance.sheet_set.set(self.request.META.get('HTTP_REFERER').lstrip('http://localhost:8000/stepsheets/'))
+        return super().form_valid(form)
 
 class SheetCreate(LoginRequiredMixin, CreateView):
     model = Sheet
@@ -97,4 +100,4 @@ class SearchResults(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('query')
-        return Sheet.objects.filter(Q(title__icontains=query))
+        return Sheet.objects.filter(Q(title__icontains=query)).order_by('title')

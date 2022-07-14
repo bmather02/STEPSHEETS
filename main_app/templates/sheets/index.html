@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <div class="content">
-    <h1>All Step Sheets - {{sheets.count}} and Counting!</h1>
+    <h1 class="page-title">All Step Sheets - {{sheets.count}} and Counting!</h1>
+    <hr/>
     {% for sheet in sheets %}
     <div class="index_item">
         <a href="{% url 'detail' sheet.id %}">

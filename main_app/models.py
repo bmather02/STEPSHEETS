@@ -1,4 +1,3 @@
-from ssl import Options
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -305,8 +304,8 @@ class Sheet(models.Model):
     style = models.CharField(max_length=10, choices=STYLES, default=STYLES[0][0])
     content = models.TextField()
     choreographer = models.ManyToManyField(Choreographer)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    video = models.ManyToManyField(Video)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+    video = models.ManyToManyField(Video, blank=True)
 
     def __str__(self):
         return self.title

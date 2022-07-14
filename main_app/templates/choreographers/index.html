@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <div class="content">
-    <h1>Choreographers</h1>
+    <h1 class="page-title">Choreographers</h1>
+    <hr/>
     {% for choreo in object_list %}
     <div class="index_item">
         <a href="{% url 'choreo_detail' choreo.id%}">
