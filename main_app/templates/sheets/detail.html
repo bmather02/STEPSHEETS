@@ -8,12 +8,12 @@
             {{sheet.content}}
         </p>
         <div class="edit_delete">
-            {% if perms.STEPSHEET.change_sheet %}
+            {% if perms.main_app.change_sheet %}
             {% if user.is_authenticated %}
             <a href="{% url 'sheets_update' sheet.id %}" class="btn">EDIT</a>
             {% endif %}
             {% endif %}
-            {% if perms.STEPSHEET.delete_sheet %}
+            {% if perms.main_app.delete_sheet %}
             {% if user.is_authenticated %}
             <a href="{% url 'sheets_delete' sheet.id %}" class="btn-delete">DELETE</a>
             {% endif %}
@@ -24,7 +24,7 @@
             {% for video in sheet.video.all %}
             <p style="margin-bottom: -.75vw">{{video.get_type_display}}</p>
             <iframe class="video" src="{{video.url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            {% if perms.STEPSHEET.change_video %}
+            {% if perms.main_app.delete_video %}
             <form action="{% url 'assoc_video_delete' sheet.id video.id %}" method="post">
                 {% csrf_token %}
               <button type="submit" class="btn" style="margin: -1vw 0 1vw 0;">REMOVE</button>
