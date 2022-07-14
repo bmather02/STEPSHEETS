@@ -33,9 +33,6 @@ class VideoCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.url = self.request.POST.get('url').replace('watch?v=', 'embed/')
         form.instance.user = self.request.user
-        form.save()
-        print(self.request.META)
-        form.instance.sheet_set.set(self.request.META.get('HTTP_REFERER').lstrip('http://localhost:8000/stepsheets/'))
         return super().form_valid(form)
 
 class SheetCreate(LoginRequiredMixin, CreateView):
