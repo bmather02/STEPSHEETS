@@ -71,8 +71,8 @@ def assoc_choreo(request, sheet_id, choreo_id):
     return redirect('detail', sheet_id=sheet_id)
 
 @login_required
-def assoc_video(request, sheet_id, video_id):
-    Sheet.objects.get(id=sheet_id).video.add(video_id)
+def assoc_video_delete(request, sheet_id, video_id):
+    Sheet.objects.get(id=sheet_id).video.remove(video_id)
     return redirect('detail', sheet_id=sheet_id)
 
 def signup(request):

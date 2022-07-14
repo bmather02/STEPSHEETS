@@ -24,6 +24,12 @@
             {% for video in sheet.video.all %}
             <p style="margin-bottom: -.75vw">{{video.get_type_display}}</p>
             <iframe class="video" src="{{video.url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% if perms.STEPSHEET.change_video %}
+            <form action="{% url 'assoc_video_delete' sheet.id video.id %}" method="post">
+                {% csrf_token %}
+              <button type="submit" class="btn" style="margin: -1vw 0 1vw 0;">REMOVE</button>
+              </form>
+              {% endif %}
             <hr style="width: 17vw; margin-top: -.75vw;"/>
             {% endfor %}
             {% if user.is_authenticated %}
