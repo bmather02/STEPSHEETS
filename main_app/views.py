@@ -37,7 +37,7 @@ class VideoCreate(LoginRequiredMixin, CreateView):
 
 class SheetCreate(LoginRequiredMixin, CreateView):
     model = Sheet
-    fields = '__all__'
+    fields = ['title', 'skill_level', 'counts', 'walls', 'style', 'content', 'choreographer']
     success_url = '/stepsheets/'
 
     def form_valid(self, form):
